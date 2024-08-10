@@ -4,7 +4,6 @@ const Tour = require('./../models/tourModel');
 const Booking = require('./../models/bookingModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('../utils/appError');
-// const factory = require('./handlerFactory');
 
 exports.getOverview = catchAsync(async (req, res) => {
   // Get data for all tours, pass into overview template
@@ -61,21 +60,3 @@ exports.getAccount = (req, res) => {
     title: 'Your Account',
   });
 };
-
-
-// Depreciated
-// exports.updateUserData = catchAsync(async (req, res) => {
-//   const updatedUser = await User.findByIdAndUpdate(req.user.id, {
-//     name: req.body.name,
-//     email: req.body.email,
-//   }, {
-//     new: true,
-//     runValidators: true,
-//   });
-//
-//   // Re-render the page
-//   res.status(200).render('account', {
-//     title: 'Your Account',
-//     user: updatedUser,
-//   });
-// });

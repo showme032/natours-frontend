@@ -1,0 +1,33 @@
+@import 'reset.css';
+@import 'header.css';
+@import 'footer.css';
+@import 'card-layout.css';
+
+html {
+    --color-surface: hsl(35, 100%, 98%);
+    --color-base: hsl(32, 57%, 95%);
+    --color-overlay: hsl(28, 40%, 92%);
+    --color-muted: hsl(257, 9%, 61%);
+    --color-subtle: hsl(248, 12%, 52%);
+    --color-text: hsl(248, 19%, 40%);
+
+    --color-primary: hsl(197, 53%, 34%);
+    --color-secondary: hsl(35, 81%, 56%);
+    --color-accent: hsl(268, 21%, 57%);
+    --color-warn: hsl(343, 35%, 55%);
+
+    --color-highlight-low: hsl(25, 35%, 93%);
+    --color-highlight-med: hsl(10, 9%, 86%);
+    --color-highlight-high: hsl(315, 4%, 80%);
+
+    --color-gray-dark: hsl(277, 5%, 27%);
+    --color-gray-medium: hsl(277, 5%, 47%);
+    --color-gray-light: hsl(277, 5%, 77%);
+
+    font-family: 'Lato', sans-serif;
+    /*padding: 8px;*/
+}
+
+.main {
+    padding: 32px;
+}

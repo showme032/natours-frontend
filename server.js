@@ -14,7 +14,6 @@ const DB = process.env.DATABASE.replace(
 // Express App
 const app = require('./app');
 
-
 process.on('uncaughtException', err => {
   console.log('Uncaught Exception. Shutting down...');
   console.log(err.name, err.message);
@@ -25,7 +24,7 @@ process.on('uncaughtException', err => {
 
 
 // Connect to cloud mongo-db
-mongoose.connect(DB).then(() => console.log('DB Connection succesful!'));
+mongoose.connect(DB).then(() => console.log('DB Connection successful!'));
 
 // Connect to local mongo-db
 // mongoose.connect(process.env.DATABASE_LOCAL);

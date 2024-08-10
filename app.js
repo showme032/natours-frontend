@@ -41,8 +41,8 @@ app.use(
       useDefaults: true,
       directives: {
         'base-uri': ['self'],
-        'script-src': ['\'self\'', 'https://cdnjs.cloudflare.com/', 'https://api.mapbox.com', 'https://js.stripe.com/v3/'],
-        'default-src': ['\'self\'', 'https://*.mapbox.com', 'ws://127.0.0.1:*/', 'https://js.stripe.com/v3/'],
+        'script-src': ['\'self\'', 'https://cdnjs.cloudflare.com/', 'https://api.mapbox.com', 'https://js.stripe.com/v3/', 'ws://localhost:52441/'],
+        'default-src': ['\'self\'', 'https://*.mapbox.com', 'ws://127.0.0.1:*/', 'https://js.stripe.com/v3/', 'ws://localhost:52441/'],
         'workerSrc': ['\'self\'', 'blob:'],
       },
     },
@@ -58,7 +58,7 @@ app.use(
   }),
 );
 // Parse data coming in url-encoded form (ie. submitted form data)
-app.use(express.urlencoded({extended: true, limit: '10kb'}));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 // User cookie parser
 app.use(cookieParser());
 

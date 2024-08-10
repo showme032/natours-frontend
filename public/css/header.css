@@ -1,0 +1,41 @@
+.header {
+    padding: 1rem 2rem;
+    display: flex;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+
+    background-color: var(--color-muted);
+
+    font-size: 1.5rem;
+}
+
+.header__logo {
+    height: 3rem;
+
+    & > img {
+        height: 100%;
+    }
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+}
+
+.nav--user {
+    justify-content: flex-end;
+}
+
+.nav__el {
+    color: white;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+
+    &:hover {
+        outline: solid white;
+    }
+}
