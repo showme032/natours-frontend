@@ -13,10 +13,13 @@ router.get(
   viewController.getOverview,
 );
 router.get('/tour/:slug', authController.isLoggedIn, viewController.getTour);
+
 // Render login page
 router.get('/login', authController.isLoggedIn, viewController.getLoginForm);
+
 // Render user account page
 router.get('/me', authController.protect, viewController.getAccount);
+
 // Render users bookings
 router.get('/my-tours', authController.protect, viewController.getMyTours);
 

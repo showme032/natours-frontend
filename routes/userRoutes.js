@@ -1,9 +1,8 @@
 const express = require('express');
-const userController = require('./../controllers/userController');
-const authController = require('./../controllers/authController');
+const userController = require('../controllers/userController');
+const authController = require('../controllers/authController');
 
 // configure multer upload
-
 
 const router = express.Router();
 
@@ -16,30 +15,19 @@ router.patch('/resetPassword/:token', authController.resetPassword);
 
 // Protect all the routes defined under
 router.use(authController.protect);
-
-router.patch(
-  '/updateMyPassword',
-  authController.updatePassword,
-);
+router.patch('/updateMyPassword', authController.updatePassword);
 
 // User self-operations
-router.get(
-  '/me',
-  userController.getMe,
-  userController.getUser,
-);
+router.get('/me', userController.getMe, userController.getUser);
 router.patch(
   '/updateMe',
   userController.uploadUserPhoto,
   userController.resizeUserPhoto,
-  userController.updateMe,
+  userController.updateMe
 );
 router.delete('/deleteMe', userController.deleteMe);
 
-// Restrict operations to admins
 router.use(authController.restrictTo('admin'));
-
-// General user operations
 router
   .route('/')
   .get(userController.getAllUsers)

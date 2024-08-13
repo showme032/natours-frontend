@@ -1,9 +1,14 @@
 .footer {
+    flex: 1;
+    max-height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    background-color: var(--color-muted);
+    background-color: hsl(248, 19%, 40%, 0.5);
+    /*background-color: hsl(248, 19%, 40%, 0.3);*/
+    backdrop-filter: blur(16px);
+    /*border-radius: 0 0 1rem 1rem;*/
 }
 
 .footer__logo {

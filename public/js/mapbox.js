@@ -1,4 +1,5 @@
-export const displayMap = locations => {
+/* eslint-disable import/prefer-default-export */
+export const displayMap = (locations) => {
   mapboxgl.accessToken =
     'pk.eyJ1Ijoic2hvd21lMDMyIiwiYSI6ImNseThxZ3YybjBneWcycHF3N2V5Ymh6bjgifQ.r9UF4d7C-N92PAKbLG_Lgw';
 
@@ -6,13 +7,14 @@ export const displayMap = locations => {
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/light-v11', // style URL
     scrollZoom: false, // so map doesn't hijack scroll from the webpage
+    center: [locations[0].coordinates[0], locations[0].coordinates[1]],
   });
 
   // CONSTRAIN MAP VIEW TO OUR TOUR AREA
   const bounds = new mapboxgl.LngLatBounds();
 
-  // Create markers for each loc in our location
-  locations.forEach(loc => {
+  // Create markers for each location in our location
+  locations.forEach((loc) => {
     // Create marker html element
     const el = document.createElement('div');
     el.className = 'marker';
@@ -25,13 +27,13 @@ export const displayMap = locations => {
       .setLngLat(loc.coordinates)
       .addTo(map);
 
-    // Add location popup above the marker, offset so it doesn't cover marker
-    new mapboxgl.Popup({
-      offset: 30,
-    })
-      .setLngLat(loc.coordinates)
-      .setHTML(`<p>Day ${loc.day}: ${loc.description}</p>`)
-      .addTo(map);
+    // Add location popup above the marker and offset, so it doesn't cover marker
+    // new mapboxgl.Popup({
+    //   offset: 30,
+    // })
+    //   .setLngLat(loc.coordinates)
+    //   .setHTML(`<p>Day ${loc.day}: ${loc.description}</p>`)
+    //   .addTo(map);
 
     // Extend map bounds to include the current location
     bounds.extend(loc.coordinates);
@@ -41,13 +43,12 @@ export const displayMap = locations => {
   map.on('load', () => {
     map.fitBounds(bounds, {
       padding: {
-        top: 200,
-        bottom: 160,
-        left: 180,
-        right: 180,
+        top: 100,
+        bottom: 80,
+        left: 90,
+        right: 90,
       },
-      duration: 0,
+      duration: 2200,
     });
   });
-
 };

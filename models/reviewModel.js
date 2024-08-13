@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
 const Tour = require('./tourModel');
+const AppError = require('../utils/appError');
 
 const reviewSchema = new mongoose.Schema(
   {
     review: {
       type: String,
-      required: true,
-      trim: [true, 'Review cannot be empty'],
+      require: [true, 'A tour must have review'],
     },
     rating: {
       type: Number,
       min: 1,
       max: 5,
-      required: [true, 'A rating is required for leaving a review'],
+      required: [true, 'A rating between 1 and 5 is required for leaving a review'],
     },
-    createdAt: {
+    createdAT: {
       type: Date,
       default: Date.now(),
     },
@@ -48,7 +48,7 @@ reviewSchema.pre(/^find/, function (next) {
 });
 
 // Calculate average rating, static method
-reviewSchema.statics.calcAverageRatings = async function (tourId) {
+reviewSchema.statics.calcAvgRating = async function (tourId) {
   const stats = await this.aggregate([
     {
       $match: { tour: tourId },
@@ -82,7 +82,7 @@ reviewSchema.statics.calcAverageRatings = async function (tourId) {
 // Call static method after saving the review
 reviewSchema.post('save', function () {
   // this.constructor is a Review (this points to current document), so we can use this schema before it's made, as when creating a document we have access to document middleware
-  this.constructor.calcAverageRatings(this.tour);
+  this.constructor.calcAvgRating(this.tour);
 });
 
 // Here, we only have query middleware
@@ -90,8 +90,8 @@ reviewSchema.post('save', function () {
 // findByIdAndDelete
 reviewSchema.pre(/^findOneAnd/, async function (next) {
   // save var to this object
-  this.r = await this.clone().findOne();
-  // console.log(this.r);
+  this.r = await this.findOne();
+
   next();
 });
 

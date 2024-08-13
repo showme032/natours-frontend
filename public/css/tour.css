@@ -1,0 +1,174 @@
+/* TOUR HEADER */
+.section-header-map {
+    display: flex;
+    /*flex-direction: column;*/
+    height: 30vw;
+    gap: var(--gap-medium);
+}
+.section-header {
+    /*background-color: var(--color);*/
+    height: 100%;
+    position: relative;
+    color: white;
+    border-radius: 2rem;
+    overflow: hidden;
+    flex: 1;
+    box-shadow: var(--shadow-small);
+}
+.header__hero {
+    height: 100%;
+    /*object-fit: cover;*/
+    overflow: hidden;
+    position: relative;
+}
+.header__hero-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.heading-box {
+    position: absolute;
+    bottom: 16px;
+    /*left: 50%;*/
+    left: 16px;
+    /*transform: translate(-50%);*/
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+    border-radius: 1rem;
+
+    backdrop-filter: blur(32px);
+    /*outline: solid 1px hsl(0, 0%, 100%, 0.5);*/
+}
+
+.heading-box__group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.heading-box__detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading-box__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: white;
+}
+
+/* TOUR DESCRIPTION */
+.section-description {
+    display: flex;
+    gap: var(--gap-medium);
+}
+
+.overview-box, .description-box {
+    padding: var(--gap-large) var(--gap-medium);
+    border-radius: 2rem;
+    border: solid calc(1px / 10) hsl(248, 19%, 40%, 20%);
+    backdrop-filter: blur(16px);
+    background-size: cover;
+    box-shadow: var(--shadow-small);
+}
+
+.overview-box {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.overview-heading {
+    text-transform: uppercase;
+    /*margin-bottom: var(--gap-big);*/
+}
+
+.overview-box__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+
+}
+
+.overview-box__icon {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--color-primary);
+}
+
+.overview-box__img {
+    height: 4rem;
+    border-radius: var(--border-radius-medium);
+}
+
+.overview-box__detail {
+    display: flex;
+}
+
+
+.description-box {
+    flex: 1;
+}
+
+.section-pictures {
+    display: flex;
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    box-shadow: var(--shadow-small);
+
+    & img {
+        display: block;
+        max-width: 100%;
+    }
+}
+
+/* MAP */
+.section-map {
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-small);
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    /*margin-top: calc(0px - 9vw);*/
+}
+.marker {
+    background-image: url('../img/pin.svg');
+    background-size: cover;
+    width: 28px;
+    height: 35px;
+    cursor: pointer;
+}
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+.mapboxgl-popup {
+    display: none;
+    max-width: 25rem;
+
+    & .mapboxgl-popup-tip{
+        border: none !important;
+        background-color: hsl(248, 19%, 100%, 0.1) !important;
+        backdrop-filter: blur(16px);
+    }
+
+    & .mapboxgl-popup-content {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        padding: 1rem !important;
+        font-size: 1rem;
+        box-shadow: var(--shadow-small) !important;
+        border: solid calc(1px / 10) hsl(248, 19%, 40%, 20%);
+        border-radius: var(--border-radius-small) !important;
+        background-color: hsl(248, 19%, 100%, 0.1) !important;
+        backdrop-filter: blur(16px);
+    }
+}

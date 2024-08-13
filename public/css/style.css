@@ -1,9 +1,12 @@
 @import 'reset.css';
 @import 'header.css';
 @import 'footer.css';
-@import 'card-layout.css';
+@import 'overview.css';
+@import 'tour.css';
+@import 'form.css';
 
 html {
+    /* COLORS */
     --color-surface: hsl(35, 100%, 98%);
     --color-base: hsl(32, 57%, 95%);
     --color-overlay: hsl(28, 40%, 92%);
@@ -11,7 +14,7 @@ html {
     --color-subtle: hsl(248, 12%, 52%);
     --color-text: hsl(248, 19%, 40%);
 
-    --color-primary: hsl(197, 53%, 34%);
+    --color-primary: hsl(189, 30%, 48%);
     --color-secondary: hsl(35, 81%, 56%);
     --color-accent: hsl(268, 21%, 57%);
     --color-warn: hsl(343, 35%, 55%);
@@ -24,10 +27,56 @@ html {
     --color-gray-medium: hsl(277, 5%, 47%);
     --color-gray-light: hsl(277, 5%, 77%);
 
-    font-family: 'Lato', sans-serif;
-    /*padding: 8px;*/
+    /* BREAKPOINTS */
+    --mobile: 550 / 16rem;
+    --tablet: 950 / 16rem;
+
+    /* OTHER VARS */
+    --transition-normal: 0.25s;
+    --transition-fast: 0.15s;
+    --transition-slow: 0.35s;
+
+    --border-radius-large: 2rem;
+    --border-radius-medium: 1rem;
+    --border-radius-small: 0.5rem;
+
+    --gap-large: 32px;
+    --gap-medium: 16px;
+    --gap-small: 8px;
+
+    --shadow-small: 0 4px 12px 2px hsl(268, 21%, 57%, 0.3);
+    --shadow-medium: 0 6px 16px 6px hsl(268, 21%, 57%, 0.3);
+
+    /* STYLES */
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    @media (max-width: var(--mobile));
+    /*background-color: var(--color-base);*/
+    color: var(--color-text);
+
+    background-image: url('./../svg/background.svg');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
 }
 
 .main {
+    flex: 1;
+    height: 100%;
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.heading-secondary {
+    text-transform: uppercase;
 }

@@ -1,4 +1,3 @@
-// Create a class for applying queries
 class APIFeatures {
   // mongoose query obj, express query string (from req.query obj)
   constructor(query, queryString) {
@@ -9,14 +8,16 @@ class APIFeatures {
   filter() {
     // 1a) Filtering
     const queryObj = { ...this.queryString };
-    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+    const excludedFields = ['fields', 'page', 'sort', 'limit'];
     excludedFields.forEach(e => delete queryObj[e]);
 
     // 1b) Advanced Filtering
-    let queryStr = JSON.stringify(queryObj);
-    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
-
-    this.query = this.query.find(JSON.parse(queryStr));
+    let queryString = JSON.stringify(queryObj);
+    queryString = queryString.replace(
+      /\b(gte|gt|lte|lt)\b/g,
+      match => `$${match}`
+    );
+    this.query = this.query.find(JSON.parse(queryString));
     // Return this object, so ther's something for methods to be chained on
     return this;
   }
@@ -26,7 +27,7 @@ class APIFeatures {
       const sortBy = this.queryString.sort.split(',').join(' ');
       this.query = this.query.sort(sortBy);
     } else {
-      this.query = this.query.sort('-createdAt');
+      this.query = this.query.sort('-createdAT');
     }
 
     return this;
@@ -37,7 +38,7 @@ class APIFeatures {
       const fields = this.queryString.fields.split(',').join(' ');
       this.query = this.query.select(fields);
     } else {
-      this.query.select('-__v');
+      this.query = this.query.select('-__v');
     }
 
     return this;

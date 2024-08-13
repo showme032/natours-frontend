@@ -92,10 +92,6 @@ exports.login = catchAsync(async (req, res, next) => {
 // SIGN THE USER OUT
 exports.logout = (req, res) => {
   res.clearCookie('jwt');
-  // res.cookie('jwt', 'logged-out', {
-  //   expires: new Date(Date.now() + 10 * 1000),
-  //   httpOnly: true,
-  // });
   res.status(200).json({
     status: 'success',
   });
@@ -250,9 +246,9 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   user.passwordConfirm = req.body.passwordConfirm;
   user.passwordResetToken = undefined;
   user.passwordResetExpires = undefined;
-  await user.save();
 
   // 3) Update the changedPasswordAt property for the current user
+  await user.save();
 
   // 4) Log the user in
   createSendToken(user, 200, res);
