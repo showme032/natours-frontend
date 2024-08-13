@@ -14,6 +14,9 @@ router.get(
 );
 router.get('/tour/:slug', authController.isLoggedIn, viewController.getTour);
 
+// Render signup page
+router.get('/signup', authController.isLoggedIn, viewController.getSignupForm);
+
 // Render login page
 router.get('/login', authController.isLoggedIn, viewController.getLoginForm);
 

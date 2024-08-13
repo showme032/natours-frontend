@@ -4,6 +4,7 @@
 @import 'overview.css';
 @import 'tour.css';
 @import 'form.css';
+@import 'account.css';
 
 html {
     /* COLORS */
@@ -27,12 +28,16 @@ html {
     --color-gray-medium: hsl(277, 5%, 47%);
     --color-gray-light: hsl(277, 5%, 77%);
 
+    /* FONTS */
+    --font-size-small: 0.8rem;
+
+
     /* BREAKPOINTS */
     --mobile: 550 / 16rem;
     --tablet: 950 / 16rem;
 
     /* OTHER VARS */
-    --transition-normal: 0.25s;
+    --transition-medium: 0.25s;
     --transition-fast: 0.15s;
     --transition-slow: 0.35s;
 
@@ -44,8 +49,10 @@ html {
     --gap-medium: 16px;
     --gap-small: 8px;
 
-    --shadow-small: 0 4px 12px 2px hsl(268, 21%, 57%, 0.3);
-    --shadow-medium: 0 6px 16px 6px hsl(268, 21%, 57%, 0.3);
+    --shadow-mini: 0 1px 8px 1px hsl(268, 21%, 57%, 0.3);
+    --shadow-small: 0 2px 8px 2px hsl(268, 21%, 57%, 0.3);
+    --shadow-medium: 0 4px 16px 6px hsl(268, 21%, 57%, 0.3);
+    --shadow-large: 0 6px 16px 8px hsl(268, 21%, 57%, 0.3);
 
     /* STYLES */
     font-family: 'Inter', sans-serif;
@@ -68,6 +75,10 @@ a {
     text-decoration: none;
 }
 
+li {
+    list-style: none;
+}
+
 .main {
     flex: 1;
     height: 100%;
@@ -79,4 +90,5 @@ a {
 
 .heading-secondary {
     text-transform: uppercase;
+    margin-bottom: var(--gap-medium);
 }

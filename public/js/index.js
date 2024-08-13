@@ -5,16 +5,16 @@ import { logOut, login } from './login';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
 // TODO: enable signup
-// import { signUp } from './signUp';
+import { signUp } from './signUp';
 
 const mapBox = document.getElementById('map');
 // const mapBox = document.querySelector('#mapbox');
-const form = document.querySelector('.form--login');
+const loginForm = document.querySelector('.form--login');
+const singupForm = document.querySelector('.form--signup');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
-// const signUpBtn = document.querySelector('.form--signup');
 
 // Delegation
 if (mapBox) {
@@ -23,8 +23,8 @@ if (mapBox) {
 }
 
 // Submit login form
-if (form) {
-  form.addEventListener('submit', (e) => {
+if (loginForm) {
+  loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -85,14 +85,15 @@ if (bookBtn) {
 }
 
 // TODO: signup implementation
-// if (signUpBtn) {
-//   document.querySelector('.form--signup').addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     const name = document.getElementById('name').value;
-//     const email = document.getElementById('email').value;
-//     const password = document.getElementById('password').value;
-//     const passwordConfirm = document.getElementById('passwordConfirm').value;
-//     console.log(name, email, password, passwordConfirm);
-//     signUp(name, email, password, passwordConfirm);
-//   });
-// }
+if (singupForm) {
+  console.log('signup form found')
+  document.querySelector('.form--signup').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+    console.log(name, email, password, passwordConfirm);
+    signUp(name, email, password, passwordConfirm);
+  });
+}

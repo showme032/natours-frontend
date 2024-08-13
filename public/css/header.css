@@ -1,5 +1,5 @@
+/* TODO: Reduce size on scroll, remove logo */
 .header {
-    /* TODO: Reduce size on scroll, remove logo */
     flex: 1;
     position: sticky;
     top: 0;
@@ -31,32 +31,48 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-
 }
-
-.nav--user {
-    // display: flex;
-    justify-content: flex-end;
-}
-
-.nav__user-img {
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: 50%;
-    margin-right: 1rem;
-}
-
 
 .nav__el {
     color: white;
     text-decoration: none;
-    padding: 4px 8px;
+    padding: 4px;
     border-radius: 4px;
-    /*transform: translate(-4px);*/
+    display: flex;
+    align-items: center;
+    transition-duration: var(--transition-fast);
 
     &:hover {
-        outline: solid white;
+        outline: solid 2px white;
+    }
+
+    & img+span {
+        margin-right: 8px;
     }
 }
 
-/* ---------- */
+.nav--user {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav_el--profile {
+    border: 2px solid white;
+    border-radius: 1.25rem;
+
+    &:hover {
+        outline: none;
+        transform: scale(101%);
+        box-shadow: 0 2px 8px 2px hsl(0, 100%, 100%, 0.3);
+        transition-duration: var(--transition-fast);
+    }
+}
+.nav__user-img {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+}
+
+
+

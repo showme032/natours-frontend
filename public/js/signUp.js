@@ -1,15 +1,5 @@
-/* eslint-disable */
-
 import axios from 'axios';
 import { showAlert } from './alerts';
-
-/**
- * "name": "Test User",
-    "email": "Test124@gmail.com",
-    "password": "Test1234",
-    "passwordConfirm": "Test1234"
- * 
- */
 
 export const signUp = async (name, email, password, passwordConfirm) => {
   try {
@@ -26,7 +16,7 @@ export const signUp = async (name, email, password, passwordConfirm) => {
     if (res.data.status === 'success') {
       showAlert(
         'success',
-        'Welcome to Natours😃 ! Your Account has been created successfully!'
+        'Welcome to Natours! Account created successfully.'
       );
       window.setTimeout(() => {
         location.assign('/');

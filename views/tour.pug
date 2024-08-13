@@ -17,67 +17,68 @@ mixin overviewBox(label, text, icon)
     span.overview-box__text= text
 
 block content
-  // Tour header
-  .section-header-map
-    section.section-header
-      .header__hero
-        //.header__hero-overlay &nbsp;
-        img.header__hero-img(src=`/img/tours/${tour.imageCover}`, alt='Tour 5')
+  main.main.tour__overlay
+    // Tour header
+    .section-header-map
+      section.section-header
+        .header__hero
+          //.header__hero-overlay &nbsp;
+          img.header__hero-img(src=`/img/tours/${tour.imageCover}`, alt='Tour 5')
 
-      .heading-box
-        h1.heading-primary
-          span= `${tour.name} Tour`
-        .heading-box__group
-          .heading-box__detail
-            svg.heading-box__icon
-              use(xlink:href='/img/icons.svg#icon-clock')
-            span.heading-box__text= `${tour.duration} days`
-          .heading-box__detail
-            svg.heading-box__icon
-              use(xlink:href='/img/icons.svg#icon-map-pin')
-            span.heading-box__text= `${tour.startLocation.description}`
+        .heading-box
+          h1.heading-primary
+            span= `${tour.name} Tour`
+          .heading-box__group
+            .heading-box__detail
+              svg.heading-box__icon
+                use(xlink:href='/img/icons.svg#icon-clock')
+              span.heading-box__text= `${tour.duration} days`
+            .heading-box__detail
+              svg.heading-box__icon
+                use(xlink:href='/img/icons.svg#icon-map-pin')
+              span.heading-box__text= `${tour.startLocation.description}`
 
-    section.section-map
-      .map(data-locations=`${JSON.stringify(tour.locations)}`,
-        data-start=`${JSON.stringify(tour.startLocation.coordinates)}`,
-        id='map')
+      section.section-map
+        .map(data-locations=`${JSON.stringify(tour.locations)}`,
+          data-start=`${JSON.stringify(tour.startLocation.coordinates)}`,
+          id='map')
 
-  // Tour description
-  section.section-description
-    .overview-box
-      //div
-      .overview-box__group
-        h2.heading-secondary.overview-heading Tour Details
+    // Tour description
+    section.section-description
+      .overview-box
+        //div
+        .overview-box__group
+          h2.heading-secondary.overview-heading Tour Details
 
-        -const date = tour.startDates[0].toLocaleString('en-us', { month: 'long', year: 'numeric'})
-        +overviewBox('Next date: ', `${date}`, 'calendar')
-        +overviewBox('Difficulty: ', tour.difficulty, 'trending-up')
-        +overviewBox('Participants: ', `${tour.maxGroupSize} People`, 'user')
-        +overviewBox('Rating: ', `${tour.ratingsAverage} / 5`, 'star')
+          -const date = tour.startDates[0].toLocaleString('en-us', { month: 'long', year: 'numeric'})
+          +overviewBox('Next date: ', `${date}`, 'calendar')
+          +overviewBox('Difficulty: ', tour.difficulty, 'trending-up')
+          +overviewBox('Participants: ', `${tour.maxGroupSize} People`, 'user')
+          +overviewBox('Rating: ', `${tour.ratingsAverage} / 5`, 'star')
 
-      .overview-box__group
-        .overview-heading
-          h2.heading-secondary Tour guides
-        each guide in tour.guides
-          .overview-box__detail
-            img.overview-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
-            - if(guide.role === 'lead-guide')
-              span.overview-box__label Lead Guide
-            - if(guide.role === 'guide')
-              span.overview-box__label Tour Guide
-            span.overview-box__text= guide.name
+        .overview-box__group
+          .overview-heading
+            h2.heading-secondary Tour guides
+          each guide in tour.guides
+            .overview-box__detail
+              img.overview-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
+              - if(guide.role === 'lead-guide')
+                span.overview-box__label Lead Guide
+              - if(guide.role === 'guide')
+                span.overview-box__label Tour Guide
+              span.overview-box__text= guide.name
 
-    .description-box
-      h2.heading-secondary.overview-heading= `About the ${tour.name} Tour`
-      - const paragraphs = tour.description.split('\n')
-      each p in paragraphs
-        p.description__text= p
+      .description-box
+        h2.heading-secondary.overview-heading= `About the ${tour.name} Tour`
+        - const paragraphs = tour.description.split('\n')
+        each p in paragraphs
+          p.description__text= p
 
-  // Tour Pictures
-  section.section-pictures
-    each image, index in tour.images
-      .picture-box
-        img.picture-box__img(src=`/img/tours/${image}`, alt=`${tour.name} ${index+1}`, class=`picture-box__img--${index + 1}`)
+    // Tour Pictures
+    section.section-pictures
+      each image, index in tour.images
+        .picture-box
+          img.picture-box__img(src=`/img/tours/${image}`, alt=`${tour.name} ${index+1}`, class=`picture-box__img--${index + 1}`)
 
 
   //  TODO: Bring back sections underneath

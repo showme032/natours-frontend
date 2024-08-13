@@ -40,6 +40,12 @@ exports.getLoginForm = (req, res) => {
   });
 };
 
+exports.getSignupForm = (req, res) => {
+  res.status(200).render('signup', {
+    title: 'Account Signup Page',
+  });
+};
+
 exports.getMyTours = catchAsync(async (req, res) => {
 //   1. Find all bookings
   console.log(req);
