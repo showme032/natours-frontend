@@ -45,9 +45,9 @@ html {
     --border-radius-medium: 1rem;
     --border-radius-small: 0.5rem;
 
-    --gap-large: 32px;
-    --gap-medium: 16px;
-    --gap-small: 8px;
+    --spacing-large: 32px;
+    --spacing-medium: 16px;
+    --spacing-small: 8px;
 
     --shadow-mini: 0 1px 8px 1px hsl(268, 21%, 57%, 0.3);
     --shadow-small: 0 2px 8px 2px hsl(268, 21%, 57%, 0.3);
@@ -82,7 +82,9 @@ li {
 .main {
     flex: 1;
     height: 100%;
-    padding: 32px;
+    width: 80%;
+    margin: auto;
+    padding: var(--spacing-small);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -90,5 +92,5 @@ li {
 
 .heading-secondary {
     text-transform: uppercase;
-    margin-bottom: var(--gap-medium);
+    margin-bottom: var(--spacing-medium);
 }

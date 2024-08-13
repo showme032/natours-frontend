@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--gap-large);
+    gap: var(--spacing-large);
     width: 100%;
 }
 
@@ -13,7 +13,7 @@
     width: 100%;
     background-color: hsl(248, 19%, 40%, 20%);
 
-    margin: var(--gap-medium) 0;
+    margin: var(--spacing-medium) 0;
 }
 
 /* MENU LINKS*/
@@ -22,7 +22,7 @@
     flex-grow: 1;
     width: 60%;
     border: solid calc(1px / 10) hsl(248, 19%, 40%, 20%);
-    padding: var(--gap-medium);
+    padding: var(--spacing-medium);
     backdrop-filter: blur(32px);
     border-radius: var(--border-radius-large);
     box-shadow: var(--shadow-small);
@@ -30,7 +30,7 @@
 .side-nav {
     display: flex;
     justify-content: space-between;
-    padding: var(--gap-small);
+    padding: var(--spacing-small);
 }
 .side-nav a {
     display: flex;
@@ -53,12 +53,12 @@
         width: 1.5rem;
         height: 1.5rem;
         fill: var(--color-text);
-        margin-right: var(--gap-medium);
+        margin-right: var(--spacing-medium);
     }
 }
 
 .admin-nav {
-    margin-top: var(--gap-medium);
+    margin-top: var(--spacing-medium);
 }
 .admin-nav__heading {
     width: fit-content;
@@ -73,14 +73,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--gap-medium);
+    gap: var(--spacing-medium);
 
     border: solid calc(1px / 10) hsl(248, 19%, 40%, 20%);
     backdrop-filter: blur(32px);
     border-radius: var(--border-radius-large);
     box-shadow: var(--shadow-medium);
 
-    padding: var(--gap-large);
+    padding: var(--spacing-large);
 }
 .user-view__form-container {
     width: 80%;
@@ -90,7 +90,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--gap-medium);
+    gap: var(--spacing-medium);
 }
 /*.form__user-photo {*/
 /*    !*height: 100%;*!*/
@@ -118,7 +118,7 @@
 }
 .btn__upload {
     position: absolute;
-    left: calc(6rem + var(--gap-medium));
+    left: calc(6rem + var(--spacing-medium));
     bottom: 0;
     width: fit-content;
     padding: 2px 4px;

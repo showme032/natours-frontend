@@ -1,6 +1,6 @@
 .form-wrapper {
     margin: auto auto;
-    padding: var(--gap-large);
+    padding: var(--spacing-large);
 
     backdrop-filter: blur(32px);
     border-radius: var(--border-radius-large);
@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--gap-medium);
+    gap: var(--spacing-medium);
     width: 500px;
 }
 
@@ -18,7 +18,7 @@
 /*    display: flex;*/
 /*    flex-direction: column;*/
 /*    align-items: center;*/
-/*    gap: var(--gap-medium);*/
+/*    gap: var(--spacing-medium);*/
 /*}*/
 .form--login {
     /*width: 100%;*/
@@ -27,7 +27,7 @@
     /*width: 100%;*/
 }
 .form__row {
-    margin-bottom: var(--gap-small);
+    margin-bottom: var(--spacing-small);
     width: 100%;
 
     display: flex;
@@ -39,7 +39,7 @@
     background-color: hsl(0, 100%, 100%);
     border: solid calc(1px / 10) hsl(248, 19%, 40%, 20%);
     border-radius: var(--border-radius-small);
-    padding: var(--gap-small);
+    padding: var(--spacing-small);
 
     color: inherit;
     font-weight: 400;
@@ -55,7 +55,7 @@
 }
 .btn {
     width: fit-content;
-    padding: var(--gap-small) var(--gap-large);
+    padding: var(--spacing-small) var(--spacing-large);
 
     font-weight: 600;
     color: var(--color-text);
@@ -68,7 +68,7 @@
     }
 }
 .btn--form{
-    margin: var(--gap-medium) auto 0;
+    margin: var(--spacing-medium) auto 0;
     border: solid calc(1px / 10) hsl(248, 19%, 40%, 20%);
     border-radius: var(--border-radius-small);
     background-color: hsl(257, 9%, 61%, 0.1);
