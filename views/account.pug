@@ -5,7 +5,7 @@ mixin navItem(link, text, icon, active)
     a(href=`${link}`)
       svg.nav__item--icon
         use(xlink:href=`img/icons.svg#icon-${icon}`)
-      | #{text}
+      span #{text}
 
 block content
   main.main
@@ -48,7 +48,7 @@ block content
             .form__row
               button#update-data.btn.btn--small.btn--form Save settings
 
-        .line.line__divider &nbsp;
+        .line__divider &nbsp;
 
         // Password settings
         .user-view__form-container

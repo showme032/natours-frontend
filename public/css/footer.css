@@ -9,11 +9,20 @@
 .footer {
     width: 80%;
     margin: auto;
-    padding: 0 var(--spacing-large);
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.8rem;
+    /*font-size: 0.7rem;*/
+    font-size: clamp(0.7rem, 0.07rem + 2.67vw, 0.9rem);
+
+    @media (max-width: 950px) {
+        padding: 0;
+    }
+
+    @media (max-width: 650px) {
+        width: 95%;
+    }
 }
 
 .footer__logo {
@@ -28,6 +37,10 @@
     & > img {
         height: 1.2rem;
     }
+
+    @media (max-width: 950px) {
+        display: none;
+    }
 }
 
 .footer__wrapper--nav {
@@ -35,9 +48,16 @@
     flex-direction: column;
     align-items: flex-end;
     padding: 8px 0;
+
+    @media (max-width: 950px) {
+        width: 950%;
+        margin: auto;
+        align-items: center;
+    }
 }
 
 .footer__nav {
+    padding: 0;
     list-style: none;
     display: flex;
     gap: 1rem;
@@ -45,6 +65,11 @@
     & a {
         color: white;
         text-decoration: none;
+    }
+
+    @media (max-width: 950px) {
+        /*width: 100%;*/
+        gap: var(--spacing-small);
     }
 }
 

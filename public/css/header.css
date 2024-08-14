@@ -15,10 +15,14 @@
 .header {
     width: 80%;
     margin: auto;
-    padding: var(--spacing-small) var(--spacing-large);
-    font-size: 1.5rem;
+    padding: var(--spacing-small) 0;
+    font-size: calc(1.25rem + (1vw - 0.35rem));
     display: flex;
     align-items: center;
+
+    @media (max-width: 650px) {
+        width: 95%;
+    }
 
 }
 
@@ -27,6 +31,10 @@
 
     & > img {
         height: 100%;
+    }
+
+    @media (max-width: 650px) {
+        display: none;
     }
 }
 
@@ -41,45 +49,63 @@
     color: white;
     text-decoration: none;
     padding: 4px;
+    min-width: fit-content;
     border-radius: var(--border-radius-small);
-    border: solid calc(1px /10) transparent;
+    border: solid calc(1px / 10) white;
     display: flex;
     align-items: center;
     transition-duration: var(--transition-medium);
 
     &:hover {
-        border: calc(1px / 10) solid white;
-        transform: scale(101%);
         box-shadow: 0 2px 8px 2px hsl(0, 100%, 100%, 0.3);
         transition-duration: var(--transition-fast);
     }
 
-    & img+span {
-        margin-right: 8px;
+    & img + span {
+        margin-right: 0.75rem;
+    }
+
+    @media (max-width: 950px) {
+        border: solid 1px white;
     }
 }
-
+a.nav__el {
+    cursor: default;
+}
 .nav--user {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
+
 .nav_el--profile {
     border: calc(1px / 10) solid white;
     border-radius: 1.25rem;
-    transition-duration: var(--transition-medium);
 
     &:hover {
-        transform: scale(101%);
         box-shadow: 0 2px 8px 2px hsl(0, 100%, 100%, 0.3);
         transition-duration: var(--transition-fast);
     }
+
+
+    @media (max-width: 950px) {
+        border: solid 1px white;
+
+        & span {
+            display: none;
+        }
+    }
 }
+
 .nav__user-img {
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 1rem;
     margin-right: 1rem;
+
+    @media (max-width: 950px) {
+        margin-right: 0;
+    }
 }
 
 
