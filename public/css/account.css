@@ -4,7 +4,7 @@
     align-items: center;
     gap: var(--spacing-large);
     margin: auto;
-    width: 60%;
+    width: 600px;
 
     @media (max-width: 950px) {
         width: 80%;
@@ -47,13 +47,12 @@
     padding: 0;
     gap: 4px;
 
-    @media (max-width: 650px) {
+    @media (max-width: 1300px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
     @media (max-width: 500px) {
-        grid-template-columns: 1fr 1fr;
-        justify-items: start;
+        /*grid-template-columns: 1fr 1fr;*/
 
     }
 }
@@ -71,6 +70,7 @@
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     &:hover {
         transition: var(--transition-fast);
@@ -92,7 +92,7 @@
 
     @media (max-width: 650px) {
         flex: 1;
-        flex-direction: revert;
+        padding: var(--spacing-small);
 
         & span {
             font-size: 1rem;
@@ -105,14 +105,14 @@
     min-width: 1.5rem;
     min-height: 1.5rem;
     fill: var(--color-text);
-    margin-right: var(--spacing-small);
+    margin: 0 var(--spacing-small);
 
     @media (max-width: 1300px) {
-        margin: 0 0 var(--spacing-small);
+        /*margin: 0 0 var(--spacing-small);*/
     }
 
     @media (max-width: 650px) {
-        margin: 0 8px 0 0;
+        /*margin: 0 8px 0 0;*/
     }
 }
 

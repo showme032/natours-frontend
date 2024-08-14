@@ -81,17 +81,15 @@ li {
 
 .main {
     flex: 1;
-    /*height: 100%;*/
-    width: 80%;
+    height: 100%;
+    width: 100%;
     margin: calc(var(--spacing-large) + var(--spacing-medium)) auto;
     /*padding: var(--spacing-small);*/
     display: flex;
     flex-direction: column;
     gap: 2rem;
 
-    @media (max-width: 650px) {
-        width: 100%;
-    }
+    @media (max-width: 650px) {}
 }
 
 .heading-secondary {

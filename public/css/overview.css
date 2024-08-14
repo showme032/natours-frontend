@@ -1,11 +1,14 @@
 .card-container {
-    /*border: solid darkslateblue;*/
+    margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     grid-gap: clamp(1.4rem, 2.5vw + 0.2rem, 2.5rem);
-    /*padding: 2rem;*/
 
-    /*background-color: var(--color-surface);*/
+    width: 80%;
+
+    @media (max-width: 650px) {
+        width: 90%;
+    }
 }
 
 .card {
