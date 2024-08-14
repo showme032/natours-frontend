@@ -16,7 +16,7 @@
     width: 80%;
     margin: auto;
     padding: var(--spacing-small) 0;
-    font-size: calc(1.25rem + (1vw - 0.35rem));
+    font-size: calc(1.2rem + (1vw - 0.4rem));
     display: flex;
     align-items: center;
 
@@ -27,7 +27,7 @@
 }
 
 .header__logo {
-    height: 1.5rem;
+    height: 2rem;
 
     & > img {
         height: 100%;
@@ -48,13 +48,16 @@
 .nav__el {
     color: white;
     text-decoration: none;
-    padding: 4px;
+    padding: 4px 16px;
     min-width: fit-content;
-    border-radius: var(--border-radius-small);
+    border-radius: var(--border-radius-medium);
+    font-weight: 500;
     border: solid calc(1px / 10) white;
+
     display: flex;
     align-items: center;
     transition-duration: var(--transition-medium);
+    cursor: default;
 
     &:hover {
         box-shadow: 0 2px 8px 2px hsl(0, 100%, 100%, 0.3);
@@ -69,16 +72,13 @@
         border: solid 1px white;
     }
 }
-a.nav__el {
-    cursor: default;
-}
 .nav--user {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.nav_el--profile {
+.nav__el--profile {
     border: calc(1px / 10) solid white;
     border-radius: 1.25rem;
 

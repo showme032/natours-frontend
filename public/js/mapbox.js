@@ -10,6 +10,10 @@ export const displayMap = (locations) => {
     center: [locations[0].coordinates[0], locations[0].coordinates[1]],
   });
 
+  map.on('load', function() {
+    map.resize()
+  });
+
   // CONSTRAIN MAP VIEW TO OUR TOUR AREA
   const bounds = new mapboxgl.LngLatBounds();
 
@@ -22,14 +26,15 @@ export const displayMap = (locations) => {
     // Add marker el to map obj
     new mapboxgl.Marker({
       element: el,
-      anchor: 'bottom', // bottom of marker is set onto lcoation
+      // anchor: 'bottom', // bottom of marker is set onto lcoation
     })
       .setLngLat(loc.coordinates)
       .addTo(map);
 
     // Add location popup above the marker and offset, so it doesn't cover marker
     // new mapboxgl.Popup({
-    //   offset: 30,
+    //   offset: 16,
+    //   focusAfterOpen: false,
     // })
     //   .setLngLat(loc.coordinates)
     //   .setHTML(`<p>Day ${loc.day}: ${loc.description}</p>`)
@@ -43,10 +48,10 @@ export const displayMap = (locations) => {
   map.on('load', () => {
     map.fitBounds(bounds, {
       padding: {
-        top: 100,
-        bottom: 80,
-        left: 90,
-        right: 90,
+        top: 60,
+        bottom: 60,
+        left: 60,
+        right: 60,
       },
       duration: 2200,
     });
