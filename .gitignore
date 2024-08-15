@@ -2,3 +2,6 @@ config.env
 .prettierrc
 eslint.config.mjs
 node_modules/
+.idea/
+.parcel-cache/
+package-lock.json
