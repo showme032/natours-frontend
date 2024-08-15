@@ -28,13 +28,6 @@ html {
     --color-gray-medium: hsl(277, 5%, 47%);
     --color-gray-light: hsl(277, 5%, 77%);
 
-    /* FONTS */
-    --font-size-small: 0.8rem;
-
-
-    /* BREAKPOINTS */
-    --break-mobile: 550px;
-    --break-tablet: 950px;
 
     /* OTHER VARS */
     --transition-medium: 0.25s;
@@ -59,16 +52,16 @@ html {
 }
 
 body {
-    /*@media (max-width: var(--mobile));*/
-    /*background-color: var(--color-base);*/
     color: var(--color-text);
 
-    background-image: url('./../svg/background.svg');
+    background-image: url('./../svg/background-2.svg');
     background-size: cover;
     background-position: center center;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+
 }
 
 a {
@@ -127,10 +120,10 @@ li {
     z-index: 9999;
     color: var(--color-text);
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
     border-radius: var(--border-radius-medium);
-    padding: 1.6rem 15rem;
+    padding: 1.6rem 8rem;
     box-shadow: var(--shadow-small);
     backdrop-filter: blur(32px);
     background-color: hsl(35, 00%, 100%, 0.5);

@@ -3,7 +3,7 @@ import '@babel/polyfill';
 import { displayMap } from './mapbox';
 import { logOut, login } from './login';
 import { updateSettings } from './updateSettings';
-import { bookTour } from './stripe';
+// import { bookTour } from './stripe';
 // TODO: enable signup
 import { signUp } from './signUp';
 
@@ -76,15 +76,14 @@ if (userPasswordForm)
 
 if (bookBtn) {
   bookBtn.addEventListener('click', e => {
-    // const tourId = e.target.dataset.tourId;
     e.target.textContent = 'Processing...';
-    const { tourId } = e.target.dataset;
+    // const { tourId } = e.target.dataset;
 
-    bookTour(tourId);
+    // bookTour(tourId);
   });
 }
 
-// TODO: signup implementation
+// TODO: signup implementation - finished
 if (singupForm) {
   console.log('signup form found')
   document.querySelector('.form--signup').addEventListener('submit', e => {

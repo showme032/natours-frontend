@@ -85,7 +85,9 @@
     text-transform: capitalize;
     font-size: 1.1rem;
 }
+.card__text {
 
+}
 .card__data-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -99,6 +101,7 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-small);
+    font-weight: 500;
 }
 .card__icon {
     fill: var(--color-text);

@@ -3,14 +3,13 @@ extends base
 block append head
   script(src='https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js')
   link(href='https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css' rel='stylesheet')
-  script(src='https://js.stripe.com/v3/')
+  //script(src='https://js.stripe.com/v3/')
 
 
 //- Mixin so code isn't repeated, definition
 mixin overviewBox(label, text, icon)
   .overview-box__detail
     svg.overview-box__icon
-      //include(`/svg/calendar.svg`)
       use(xlink:href=`/img/icons.svg#icon-${icon}`)
     .overview-box__section
       span.overview-box__label= label
@@ -18,7 +17,6 @@ mixin overviewBox(label, text, icon)
 
 mixin reviewCard(review)
   .reviews__card
-    //.reviews__avatar
     img.reviews__avatar-img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name}`)
     h6.reviews__user= review.user.name
     p.reviews__text= review.review
@@ -90,18 +88,20 @@ block content
           .picture-box
             img.picture-box__img(src=`/img/tours/${image}`, alt=`${tour.name} ${index+1}`, class=`picture-box__img--${index + 1}`)
 
+      // Reviews
       section.section-reviews
         .reviews
           each review, index in tour.reviews
             if index < 6
               +reviewCard(review)
 
+      // Booking
       section.section-cta
         .cta__content
           h2.heading-secondary What are you waiting for?
           p.cta__text= `${tour.duration} days. 1 adventure. Infinite memories. Make it yours today!`
 
           if user
-            button.btn.btn--form.span-all-rows#book-tour(data-tour-id=`${tour.id}`) Book tour now!
+            button.btn.btn--form#book-tour(data-tour-id=`${tour.id}`) Book tour now!
           else
-            a.btn.btn--form.span-all-rows(href='/login') Log in to book tour!
+            a.btn.btn--form(href='/login') Log in to book tour!
