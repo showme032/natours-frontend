@@ -55,25 +55,27 @@ block content
         .overview-box__group
           h2.heading-secondary.overview-heading Tour Details
 
-          -const date = tour.startDates[0].toLocaleString('en-us', { month: 'long', year: 'numeric'})
-          +overviewBox('Next date: ', `${date}`, 'calendar')
-          +overviewBox('Difficulty: ', `${(tour.difficulty === 'medium') ? 'medium difficulty' : tour.difficulty}`, 'trending-up')
-          +overviewBox('Participants: ', `${tour.maxGroupSize} People`, 'user')
-          +overviewBox('Rating: ', `${tour.ratingsAverage} / 5`, 'star')
+          .overview-box__content
+            -const date = tour.startDates[0].toLocaleString('en-us', { month: 'long', year: 'numeric'})
+            +overviewBox('Next date: ', `${date}`, 'calendar')
+            +overviewBox('Difficulty: ', `${(tour.difficulty === 'medium') ? 'medium difficulty' : tour.difficulty}`, 'trending-up')
+            +overviewBox('Participants: ', `${tour.maxGroupSize} People`, 'user')
+            +overviewBox('Rating: ', `${tour.ratingsAverage} / 5`, 'star')
 
         .line__divider.tour__line &nbsp;
         .overview-box__group
           h2.heading-secondary.overview-heading Tour guides
 
-          each guide in tour.guides
-            .overview-box__detail.tour__guide
-              img.overview-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
-              .tour__guide--text
-                - if(guide.role === 'lead-guide')
-                  span.overview-box__label Lead Guide
-                - if(guide.role === 'guide')
-                  span.overview-box__label Tour Guide
-                span.overview-box__text= guide.name
+          .overview-box__content.overview-box__content--guides
+            each guide in tour.guides
+              .overview-box__detail.tour__guide
+                img.overview-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
+                .tour__guide--text
+                  - if(guide.role === 'lead-guide')
+                    span.overview-box__label Lead Guide
+                  - if(guide.role === 'guide')
+                    span.overview-box__label Tour Guide
+                  span.overview-box__text= guide.name
 
       section.description-box
         h2.heading-secondary.overview-heading= `About the ${tour.name} Tour`
