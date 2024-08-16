@@ -3,17 +3,14 @@
   "version": "1.0.0",
   "description": "learning node express and mongoDb",
   "main": "app.js",
-  "targets": {
-    "main": false
-  },
   "scripts": {
     "start": "nodemon server.js",
     "start:production": "SET NODE_ENV=production&&nodemon server.js",
     "debug": "ndb server.js",
-    "watch:js": "parcel serve ./public/js/index.js --dist-dir ./public/js/bundled",
+    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js/bundled --out-file index.js --public-url ./",
     "build": "parcel build ./public/js/index.js --dist-dir ./public/js/bundled"
   },
-  "author": "Nikhil Satyam",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -58,7 +55,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
-    "parcel": "^2.9.3",
+    "parcel-bundler": "^1.12.5",
     "prettier": "^2.8.8",
     "process": "^0.11.10"
   }
